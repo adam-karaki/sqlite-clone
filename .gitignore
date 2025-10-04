@@ -1,1 +1,6 @@
-a.out
+# Compiled binaries
+*.out
+sqlite_clone
+
+# Build artifacts
+*.dSYM/
