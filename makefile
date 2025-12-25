@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -pedantic -g
 
 TARGET = sqlite_clone
-SRC = main.c
+SRC = main.c types.c compiler.c
 
 all: $(TARGET)
 
