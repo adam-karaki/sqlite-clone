@@ -1,6 +1,9 @@
-# Compiled binaries
-*.out
+# Binaries
 sqlite_clone
+*.out
 
-# Build artifacts
-*.dSYM/
+# Object files
+*.o
+
+# macOS debug symbols
+*.dSYM

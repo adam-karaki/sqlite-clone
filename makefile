@@ -1,16 +1,23 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic -g
+CFLAGS = -Wall -Wextra -pedantic -g -Iinclude
 
 TARGET = sqlite_clone
-SRC = main.c types.c compiler.c
+SRC = src/main.c src/types.c src/compiler.c
+OBJ = build/main.o build/types.o build/compiler.o
 
 all: $(TARGET)
 
-$(TARGET): $(SRC)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
+build:
+	mkdir -p build
+
+$(TARGET): build $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $(OBJ)
 
 run: $(TARGET)
 	./$(TARGET)
 
+build/%.o: src/%.c | build
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-	rm -f $(TARGET)
+	rm -rf build $(TARGET)
